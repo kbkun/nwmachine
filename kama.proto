@@ -1,0 +1,45 @@
+package kama.protocol;
+
+message Envelope {
+    optional Frame frame = 1;
+    optional DataFile dataFile = 2;
+    optional EndSession endSession = 3;
+}
+
+message Frame {
+    optional int32 subscriber_number = 1;
+    required int32 measuring_pointing_number = 2;
+    required int32 information_type = 3;
+    required int32 distance_channel_tracking_mode = 4;
+    required int32 angle_channel_tracking_mode = 5;
+    optional int32 height_channel_tracking_mode = 6;
+    required int32 response_signal_mode = 8;
+    required int32 gain_gontrol = 9;
+    required int32 frequency_control = 10;
+    required int32 antenna_pointing_mode = 11;
+    required int32 distance_is_valid = 12;
+    required int32 agc_level = 13;
+    required int32 time_mode = 14;
+    required string time = 15;
+    required double azimuth = 16;
+    required double elevation = 17;
+    required int32 distance = 18;
+    optional int32 height = 19;
+    optional FrameContext frameConext = 20;
+}
+
+message DataFile {
+    required int32 mp_num = 1;
+    required string file_name = 2;
+    required bytes data_bytes = 3;
+    optional bool main_work = 4;
+}
+
+message EndSession {
+}
+
+message FrameContext {
+    required int32 work_num = 1;
+    required int32 launch_num = 2;
+    required bool main_work = 3;
+}
